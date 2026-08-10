@@ -20,17 +20,21 @@ export function UserCard(props) {
         <p className="text-purple-700">@{user.username}</p>
       </div>
       <div>
+        <p className="text-gray-400">EMAIL</p>
         <p>{user.email}</p>
       </div>
       <div>
+        <p className="text-gray-400">PHONE</p>
         <p>{user.phone}</p>
       </div>
       <div>
+        <p className="text-gray-400">ADDRESS</p>
         <p>
           {user.address.city}, {user.address.street}
         </p>
       </div>
       <div>
+        <p className="text-gray-400">COMPANY</p>
         <p>{user.company.name}</p>
       </div>
       <button

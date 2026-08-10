@@ -1,6 +1,5 @@
 "use client";
 
-import { responseCookiesToRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { useEffect, useState } from "react";
 
 export default function Home() {

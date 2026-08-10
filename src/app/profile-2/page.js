@@ -33,9 +33,9 @@ export default function Home() {
           <div
             className={`w-100 h-100 bg-gray-200 rounded-2xl absolute left-10 ${isOpen ? "opacity-100" : "opacity-0"} transition-all flex flex-col gap-3`}
           >
-            {filteredUsers.map((user) => {
+            {filteredUsers.map((user, index) => {
               return (
-                <div className="bg-blue-300 flex justify-between p-2 items-center rounded-2xl">
+                <div key={index} className="bg-blue-300 flex justify-between p-2 items-center rounded-2xl">
                   <p>{user.name}</p>
                   <button
                     className="bg-red-500 rounded-lg p-1"

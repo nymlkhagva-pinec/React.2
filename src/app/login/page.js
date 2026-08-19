@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../../../lib/supabase/client";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -12,12 +13,14 @@ export default function Home() {
   const lowerCase = /[a-z]/.test(password);
   const hasNumber = /[0-9]/.test(password);
   const userLengthValid = username.length >= 4;
+  const router = useRouter();
 
   async function handleSupa() {
     const { data, error } = await supabase
       .from("nym.2.login")
       .insert({ name: username, password: password })
       .select();
+    window.localStorage.setItem("id", data[0].id);
     console.log("data", data);
     console.log("error", error);
   }
@@ -39,6 +42,14 @@ export default function Home() {
     localSave();
 
     toast.success("User Successfully Saved!");
+
+    const timerId = setTimeout(() => {
+      3000;
+    });
+
+    router.push("/profile");
+
+    return () => clearTimeout(timerId);
   }
 
   return (
